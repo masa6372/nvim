@@ -19,7 +19,7 @@ call plug#end()
 "-------------------------------------------------------------------------
 "                           markdown settings
 "-------------------------------------------------------------------------
-let g:previm_open_cmd = '/mnt/c/Program\Files/Google/Chrome/Application/chrome.exe'
+let g:previm_open_cmd = '/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe'
 "MarkDownでブラウザ表示させるためのパス
 let g:previm_wsl_mode = 1
 "WSLでprevimを用いてブラウザ表示させるための設定
