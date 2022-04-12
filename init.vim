@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/plugged')
 	"以下MarkDownのため
 	Plug 'plasticboy/vim-markdown'
 	Plug 'previm/previm'
+    Plug 'daeyun/vim-matlab'
 call plug#end()
 
 "-------------------------------------------------------------------------
@@ -30,8 +31,6 @@ let g:previm_wsl_mode = 1
 "                            general settings
 "--------------------------------------------------------------------------
 silent! helptags ALL
-set clipboard+=unnamed
-"クリップボードに*pでコピーするため
 syntax on
 "シンタックスハイライトを有効化
 filetype plugin indent on
@@ -51,6 +50,7 @@ set termguicolors
 colorscheme torte           "カラースキームを設定
 set number                  "行数を追加
 set clipboard=unnamed,unnamedplus 
+"クリップボードに*pでコピーするため
 set laststatus=2
 "ステータスラインを常時表示
 set showcmd
@@ -78,5 +78,17 @@ set pumheight=10
 
 
 " >^.^<
-
+"--------------------------------------------------------------------------
+"                           for Lua script
 command! Scratch lua require'tools'.makeScratch()
+"--------------------------------------------------------------------------
+
+"--------------------------------------------------------------------------
+"                           for clip board in WSL
+"--------------------------------------------------------------------------
+if system('uname -a | grep microsoft') != ''
+    augroup myYank
+        autocmd!
+        autocmd TextYankPost * :call system('clip.exe', @")
+    augroup END
+endif"
