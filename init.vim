@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'daeyun/vim-matlab'
 call plug#end()
 
+filetype plugin on "for netrw
 "-------------------------------------------------------------------------
 "                           markdown settings
 "-------------------------------------------------------------------------
