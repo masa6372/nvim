@@ -15,9 +15,17 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'plasticboy/vim-markdown'
 	Plug 'previm/previm'
     Plug 'daeyun/vim-matlab'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 filetype plugin on "for netrw
+"-------------------------------------------------------------------------
+""                           for coc.nvim
+"-------------------------------------------------------------------------
+let g:coc_global_extensions = [
+    \'coc-clangd',
+    \'coc-pyright'
+    \]
 "-------------------------------------------------------------------------
 "                           markdown settings
 "-------------------------------------------------------------------------
@@ -25,7 +33,6 @@ let g:previm_open_cmd = '/mnt/c/Program\ Files/Google/Chrome/Application/chrome.
 "MarkDownでブラウザ表示させるためのパス
 let g:previm_wsl_mode = 1
 "WSLでprevimを用いてブラウザ表示させるための設定
-"--------------------------------------------------------------------------
 
 
 "--------------------------------------------------------------------------
@@ -60,7 +67,6 @@ set cursorline
 "カーソルが居る行にラインを表示
 set cursorcolumn
 "カーソルが居る列にラインを表示
-"--------------------------------------------------------------------------
 "
 "--------------------------------------------------------------------------
 "                           leader key settings
@@ -81,8 +87,8 @@ set pumheight=10
 " >^.^<
 "--------------------------------------------------------------------------
 "                           for Lua script
-command! Scratch lua require'tools'.makeScratch()
 "--------------------------------------------------------------------------
+command! Scratch lua require'tools'.makeScratch()
 
 "--------------------------------------------------------------------------
 "                           for clip board in WSL
