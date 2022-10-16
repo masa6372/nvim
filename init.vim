@@ -62,17 +62,21 @@ set clipboard=unnamed,unnamedplus
 set laststatus=2
 "ステータスラインを常時表示
 set showcmd
-"最後に実行したコマンドをステータスラインに表示
-set cursorline
-"カーソルが居る行にラインを表示
-set cursorcolumn
-"カーソルが居る列にラインを表示
+if !exists('g:vscode') 
+	"最後に実行したコマンドをステータスラインに表示
+	set cursorline
+	"カーソルが居る行にラインを表示
+	set cursorcolumn
+	"カーソルが居る列にラインを表示
+endif
 "--------------------------------------------------------------------------
 "　　　　　　　　　　　　　　　for japanese input
 "--------------------------------------------------------------------------
 set ttimeout
 set ttimeoutlen=50
-set ambiwidth=double
+if !exists('g:vscode') 
+	set ambiwidth=double
+endif
 "--------------------------------------------------------------------------
 "                           leader key settings
 "--------------------------------------------------------------------------
@@ -104,3 +108,4 @@ if system('uname -a | grep microsoft') != ''
         autocmd TextYankPost * :call system('clip.exe', @")
     augroup END
 endif"
+
